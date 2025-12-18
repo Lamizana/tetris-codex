@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Red Tetris</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Red Tetris</h1>
+    <p>Une version jouable directement dans le navigateur. Utilisez les contrôles dédiés à chaque joueur pour vous affronter en local.</p>
+  </header>
+
+  <main class="layout">
+    <section class="playfield" aria-label="Joueur 1">
+      <div class="card-header">
+        <div>
+          <p class="eyebrow">Joueur 1</p>
+          <h2>Flèches + Espace</h2>
+        </div>
+        <div class="status" id="p1-status">En attente</div>
+      </div>
+      <canvas id="p1-game" width="240" height="480" aria-label="Plateau de jeu joueur 1"></canvas>
+      <div class="controls">
+        <button id="p1-start">Nouvelle partie</button>
+        <button id="p1-pause">Pause / Reprise</button>
+      </div>
+      <div class="panel stats">
+        <p><strong>Score :</strong> <span id="p1-score">0</span></p>
+        <p><strong>Niveau :</strong> <span id="p1-level">1</span></p>
+        <p><strong>Lignes :</strong> <span id="p1-lines">0</span></p>
+      </div>
+      <div class="panel next-box">
+        <h3>Prochaine pièce</h3>
+        <canvas id="p1-next" width="120" height="120"></canvas>
+      </div>
+    </section>
+
+    <section class="panel rules">
+      <h2>Raccourcis</h2>
+      <div class="rules-grid">
+        <div>
+          <p class="eyebrow">Joueur 1</p>
+          <ul>
+            <li>Flèches gauche / droite : déplacer</li>
+            <li>Flèche haut : rotation</li>
+            <li>Flèche bas : descente rapide</li>
+            <li>Barre d'espace : chute instantanée</li>
+            <li>P : pause / reprise</li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow">Joueur 2</p>
+          <ul>
+            <li>A / D : déplacer</li>
+            <li>W : rotation</li>
+            <li>S : descente rapide</li>
+            <li>Entrée : chute instantanée</li>
+            <li>L : pause / reprise</li>
+          </ul>
+        </div>
+      </div>
+      <h2>Règles du jeu (selon le sujet)</h2>
+      <ul class="rules-list">
+        <li><strong>Grille :</strong> 10 colonnes sur 20 lignes. Une nouvelle pièce apparaît en haut, centrée sur la largeur.</li>
+        <li><strong>Pièces :</strong> les 7 tétriminos I, J, L, O, S, T et Z tombent de façon aléatoire, chacun pouvant être tourné.</li>
+        <li><strong>Déplacements :</strong> déplacer horizontalement, faire tourner, descendre plus vite ou utiliser la chute instantanée pour verrouiller immédiatement la pièce.</li>
+        <li><strong>Lignes :</strong> une ligne complète est supprimée. Plusieurs lignes en même temps rapportent davantage de points.</li>
+        <li><strong>Score :</strong> +100 / +300 / +500 / +800 points pour 1 / 2 / 3 / 4 lignes effacées en une fois.</li>
+        <li><strong>Niveaux :</strong> le niveau augmente tous les 10 lignes effacées et accélère la descente des pièces.</li>
+        <li><strong>Fin de partie :</strong> la partie se termine si une nouvelle pièce ne peut pas être placée (collision dès son apparition).</li>
+      </ul>
+      <p class="hint">Astuce : lancez une partie des deux côtés et voyez qui atteint le niveau le plus élevé.</p>
+    </section>
+
+    <section class="playfield" aria-label="Joueur 2">
+      <div class="card-header">
+        <div>
+          <p class="eyebrow">Joueur 2</p>
+          <h2>WASD + Entrée</h2>
+        </div>
+        <div class="status" id="p2-status">En attente</div>
+      </div>
+      <canvas id="p2-game" width="240" height="480" aria-label="Plateau de jeu joueur 2"></canvas>
+      <div class="controls">
+        <button id="p2-start">Nouvelle partie</button>
+        <button id="p2-pause">Pause / Reprise</button>
+      </div>
+      <div class="panel stats">
+        <p><strong>Score :</strong> <span id="p2-score">0</span></p>
+        <p><strong>Niveau :</strong> <span id="p2-level">1</span></p>
+        <p><strong>Lignes :</strong> <span id="p2-lines">0</span></p>
+      </div>
+      <div class="panel next-box">
+        <h3>Prochaine pièce</h3>
+        <canvas id="p2-next" width="120" height="120"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
