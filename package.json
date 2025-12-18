@@ -1,0 +1,12 @@
+{
+  "name": "tetris-codex",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Red Tetris navigateur",
+  "scripts": {
+    "client-dev": "python -m http.server 8000"
+  },
+  "keywords": ["tetris", "browser", "jeu"],
+  "author": "",
+  "license": "MIT"
+}
