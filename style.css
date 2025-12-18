@@ -164,6 +164,18 @@ canvas[id$='next'] {
   gap: 12px;
 }
 
+.rules-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  display: grid;
+  gap: 6px;
+}
+
+.rules h2:not(:first-child) {
+  margin-top: 4px;
+}
+
 .hint {
   margin: 0;
   color: var(--muted);
